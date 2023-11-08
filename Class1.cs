@@ -29,7 +29,14 @@ namespace PlaywrightLoginTest
             // Click on the login button
             await Page.ClickAsync("button[type='Login']");
 
-            
+            // Assert that the logout button is present after logging in
+            var logoutButton = await Page.WaitForSelectorAsync("button[type='Logout']");
+            Assert.That(logoutButton, Is.Not.Null, "The logout button should be present after a successful login.");
+
+            Console.WriteLine("Login test passed!");
+
+            await Page.CloseAsync();
+            await browser.CloseAsync();
 
         }
     }
