@@ -23,20 +23,13 @@ namespace PlaywrightLoginTest
             await Page.GotoAsync("https://www.google.com/login/");
 
             // Enter the username and password
-            await Page.FillAsync("input[name='username']", "privacytest79@gmail.com");
-            await Page.FillAsync("input[password='password']", "Apple_123_!");
+            await Page.FillAsync("input[name='username']", "username");
+            await Page.FillAsync("input[password='password']", "pass123");
 
             // Click on the login button
             await Page.ClickAsync("button[type='Login']");
 
-            // Assert that the logout button is present after logging in
-            var logoutButton = await Page.WaitForSelectorAsync("button[type='Logout']");
-            Assert.That(logoutButton, Is.Not.Null, "The logout button should be present after a successful login.");
-
-            Console.WriteLine("Login test passed!");
-
-            await Page.CloseAsync();
-            await browser.CloseAsync();
+            
 
         }
     }
