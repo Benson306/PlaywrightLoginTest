@@ -34,7 +34,6 @@ namespace PlaywrightLoginTest
             Assert.That(logoutButton, Is.Not.Null, "The logout button should be present after a successful login.");
 
             Console.WriteLine("Login test passed!");
-            Console.WriteLine("Login test passed!");
 
             await Page.CloseAsync();
             await browser.CloseAsync();
